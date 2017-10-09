@@ -1,0 +1,38 @@
+<h1>Welcome to Movies_With_ Friends</h1>
+
+<h2>New Movies to Watch With Friends</h2>
+
+<ul>
+{{#each movies}}
+  {{#unless watched}}
+    {{> movies/movies-block watched=true}}
+  {{/unless}}
+{{/each}}
+</ul>
+
+<h2>Movies You Have Already Watched With Friends</h2>
+
+<ul>
+{{#each movies}}
+  {{#if watched}}
+    {{> movies/movies-block watched=false}}
+  {{/if}}
+{{/each}}
+</ul>
+
+<h2>Add New Movies</h2>
+ <form class="create-form">
+
+     <div class="form-group">
+         <label for="mo">Movie: Name</label>
+         <input type="text" id="mo" name="title">
+     </div>
+
+    <div class="form-group">
+        <label for="wat">Watched?</label><br>
+        <input type="radio" name="watched" value="1" checked>Watched!<br>   
+        <input type="radio" name="watched" value="0"> Not Watched
+    </div>
+
+    <button type="submit">Finish Movie</button>
+ </form>
